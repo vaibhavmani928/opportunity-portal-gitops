@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opportunity-service
+  namespace: opportunity-portal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: opportunity-service
+  template:
+    metadata:
+      labels:
+        app: opportunity-service
+    spec:
+      containers:
+        - name: opportunity-service
+          image: vaibhavmani/opportunity-service:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              value: "opportunity-portal-db.cpk2i24qqiwp.ap-south-1.rds.amazonaws.com"  # <-- update with your RDS endpoint
+            - name: DB_NAME
+              value: "opportunitydb"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: password
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
