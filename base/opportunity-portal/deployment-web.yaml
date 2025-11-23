@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: web-frontend
-          image: vaibhavmani/opportunity-frontend:latest
+          image: vaibhavmani810/opportunity-frontend:latest
           ports:
-            - containerPort: 80
+            - containerPort: 5173
           env:
             - name: API_BASE_URL
               value: "http://opportunity-service.opportunity-portal.svc.cluster.local"
