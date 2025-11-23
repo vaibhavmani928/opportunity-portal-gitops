@@ -6,7 +6,7 @@ namespace: opportunity-portal
 resources:
   - namespace.yaml
   - secret-db.yaml
-  - deployment-auth.yaml
+  - deployment-auth.yaml 
   - service-auth.yaml
   - deployment-opportunity.yaml
   - service-opportunity.yaml
@@ -14,3 +14,5 @@ resources:
   - service-web.yaml
   - hpa-auth.yaml
   - hpa-opportunity.yaml
+  - deployment-college.yaml
+  - service-college.yaml
