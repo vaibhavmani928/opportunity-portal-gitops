@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: college-service
+  namespace: opportunity-portal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: college-service
+  template:
+    metadata:
+      labels:
+        app: college-service
+    spec:
+      containers:
+      - name: college-service
+        image: vaibhvamani810/college-service:latest
+        ports:
+        - containerPort: 5002

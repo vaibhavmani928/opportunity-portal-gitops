@@ -23,6 +23,10 @@ spec:
               value: "opportunity-portal-db.cpk2i24qqiwp.ap-south-1.rds.amazonaws.com"  # <-- update with your RDS endpoint
             - name: DB_NAME
               value: "opportunitydb"
+           
+            - name: COLLEGE_BASE
+              value: "http://college-service.opportunity-portal.svc.cluster.local:5002"
+
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
