@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: opportunity-service
-          image: vaibhavmani810/opportunity-service:latest
+          image: vaibhvamani810/opportunity-service:latest
           ports:
             - containerPort: 5003
           env:
