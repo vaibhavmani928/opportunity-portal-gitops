@@ -4,7 +4,7 @@ metadata:
   name: opportunity-service
   namespace: opportunity-portal
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: opportunity-service
