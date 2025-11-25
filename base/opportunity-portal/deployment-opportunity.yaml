@@ -19,8 +19,9 @@ spec:
           ports:
             - containerPort: 5003
           env:
+            # Database
             - name: DB_HOST
-              value: "opportunity-portal-db.cpk2i24qqiwp.ap-south-1.rds.amazonaws.com"  # <-- update with your RDS endpoint
+              value: "opportunity-portal-db.cpk2i24qqiwp.ap-south-1.rds.amazonaws.com"
             - name: DB_NAME
               value: "opportunitydb"
             - name: DB_USER
@@ -33,6 +34,27 @@ spec:
                 secretKeyRef:
                   name: db-credentials
                   key: password
+
+            # AWS integration
+            - name: S3_BUCKET_NAME
+              value: "opportunity-portal-uploads-cd59bf66"
+            - name: SQS_QUEUE_URL
+              value: "https://sqs.ap-south-1.amazonaws.com/978859456318/opportunity-events"
+            - name: AWS_REGION
+              value: "ap-south-1"
+
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: AWS_ACCESS_KEY_ID
+
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: AWS_SECRET_ACCESS_KEY
+
           resources:
             requests:
               cpu: "100m"

@@ -17,7 +17,7 @@ spec:
         - name: auth-service
           image: vaibhvamani810/auth-service:latest
           ports:
-            - containerPort: 5001
+            - containerPort: 8080
           env:
             - name: DB_HOST
               value: "opportunity-portal-db.cpk2i24qqiwp.ap-south-1.rds.amazonaws.com"  # <-- update with your RDS endpoint
